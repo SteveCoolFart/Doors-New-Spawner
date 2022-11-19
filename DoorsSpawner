@@ -26,6 +26,7 @@ local Window = Rayfield:CreateWindow({
 	}
 })
 local OfficalEntities = Window:CreateTab("Offical Entities", 4483362458)
+local KeyBinds = Window:CreateTab("KeyBinds", 4483362458)
 local OldOfficalEntities = Window:CreateTab("Old Offical Entities", 4483362458) -- Title, Image
 
 local SeekButton = OfficalEntities:CreateButton({
@@ -128,5 +129,17 @@ local entity = Creator.createEntity({
 
 
 Creator.runEntity(entity)
+	end,
+})
+local KeybindSeek = KeyBinds:CreateKeybind({
+	Name = "Seek",
+	CurrentKeybind = "S",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+local EntitySpawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/EntitySpawner.lua"))()
+local Configuration = {}
+
+EntitySpawner:Spawn("Seek", unpack(Configuration))
 	end,
 })
