@@ -1,0 +1,132 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "DOORS // Spawner Script",
+	LoadingTitle = "Loading DOORS // Spawner Script...",
+	LoadingSubtitle = "by Steve The Animator",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "DOORSSPAWNERSCRIPT"
+	},
+        Discord = {
+        	Enabled = true,
+        	Invite = "d4AewkmEC9", -- The Discord invite code, do not include discord.gg/
+        	RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+        },
+	KeySystem = true, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "DOORS // Spawner Script Key",
+		Subtitle = "Please Enter Your Key!",
+		Note = "Join the discord (https://discord.gg/d4AewkmEC9)",
+		FileName = "DoorsSpawnerKey",
+		SaveKey = true,
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = "DoorsScriptSteve"
+	}
+})
+local OfficalEntities = Window:CreateTab("Offical Entities", 4483362458)
+local OldOfficalEntities = Window:CreateTab("Old Offical Entities", 4483362458) -- Title, Image
+
+local SeekButton = OfficalEntities:CreateButton({
+	Name = "Seek",
+	Callback = function()
+local EntitySpawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/EntitySpawner.lua"))()
+local Configuration = {}
+
+EntitySpawner:Spawn("Seek", unpack(Configuration))
+	end,
+})
+
+local ScreechButton = OfficalEntities:CreateButton({
+	Name = "Screech",
+	Callback = function()
+   require(game.StarterGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech)(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
+	end,
+})
+local HaltButton = OfficalEntities:CreateButton({
+	Name = "Halt",
+	Callback = function()
+require(game.ReplicatedStorage.ClientModules.EntityModules.Shade).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
+	end,
+})
+
+local GlitchButton = OfficalEntities:CreateButton({
+	Name = "Glitch",
+	Callback = function()
+ require(game.ReplicatedStorage.ClientModules.EntityModules.Glitch).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
+	end,
+})
+local RushButton = OfficalEntities:CreateButton({
+	Name = "Rush",
+	Callback = function()
+  local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+-- Create entity
+local entity = Creator.createEntity({
+    Model = "https://github.com/Johnny39871/assets/blob/main/Rush.rbxm?raw=true",
+    Speed = 90,
+    DelayTime = 3,
+    HeightOffset = 0,
+    CanKill = false,
+        --KillRange = 90,
+    BreakLights = true,
+    FlickerLights = {
+        true,
+        1, -- Duration of lights flickering (1 = 0.5 seconds)
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        WaitTime = 5,
+    },
+    CamShake = {
+        true,
+        {5, 15.1, 1},
+        1,
+    },
+    CustomDialog = {"You died to THE 3Gs", "WAIT UH", "subscribe to me if you see this bitch"}, 
+})
+
+
+Creator.runEntity(entity)
+	end,
+})
+local OldAmbushButton = OldOfficalEntities:CreateButton({
+	Name = "OldAmbush",
+	Callback = function()
+local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+-- Create entity
+local entity = Creator.createEntity({
+    Model = 11469154488,
+    Speed = 120,
+    DelayTime = 7,
+    HeightOffset = 0,
+    CanKill = false,
+        --KillRange = 90,
+    BreakLights = true,
+    FlickerLights = {
+        true,
+        10, -- Duration of lights flickering (1 = 0.5 seconds)
+    },
+    Cycles = {
+        Min = 9,
+        Max = 10,
+        WaitTime = 5,
+    },
+    CamShake = {
+        true,
+        {5, 15.1, 1},
+        1,
+    },
+    CustomDialog = {"You died to Old Ambush", "He Is FAST", "Bye Bye :)"}, 
+})
+
+
+Creator.runEntity(entity)
+	end,
+})
